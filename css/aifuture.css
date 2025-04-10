@@ -1,0 +1,33 @@
+/* CONTENT */
+.content { /* vaihdoin <p> tagin <div> tagiksi ja lisäsin vähän tilaa ylös ja alas niin ei jää headerin ja footerin alle */
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+img {
+    max-width: 250px;
+    max-height: 100%;
+}
+
+.text {
+    font-size: 16px;
+    padding-left: 20px;
+    font-family: "Roboto";
+}
+
+h1 {
+    text-align: center;
+    font-family: "Orbitron";
+}
+
+h2 {
+    text-align: center;
+    font-family: "Exo 2";
+}

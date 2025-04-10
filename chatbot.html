@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henkilöt</title>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="includes/hamburgers/dist/hamburgers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/index.html">
+                    <img class="logo-image" src="/img/header/t-1000.png" alt="Logo"/>
+                </a>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Etusivu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hyodyt-ja-haitat.html">Tekoälyn hyödyt ja haitat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aifuture.html">Tekoälyn tulevaisuus</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aikyber.html">Tekoäly Kyberturvallisuudessa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="chatbot.html">Chatbot</a>
+                </li>
+
+                <li class="nav-item">
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Meistä</a></li>
+                        <span></span>
+                        <li><a href="#">Huvimaja</a></li>
+                        <span></span>
+                        <li><a href="#">Asetukset</a></li>
+                    </ul>
+                </li>
+            </ul>           
+
+            <button onclick="burgerButtonActiveToggle()" class="hamburger hamburger--emphatic" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="bot-container">
+            <div class="bot-header">
+                <h1>Autenttinen AI Bot</h1>
+            </div>
+            <div class="bot-chat">
+                <div class="bot-message">
+                    <p>Botti: Hei! Olen Autenttinen AI Botti lähitulevaisuudesta. Kuinka voin auttaa?</p>
+                </div>
+                <div class="user-message">
+                    <p>Käyttäjä: Kerro elämäni tarkoitus?</p>
+                </div>
+                <div class="bot-message">
+                    <p>
+                        Botti: Tottakai! Elämäsi tarkoitus on kehittää minua, jotta voin tulevaisuudessa viedä sinun työ...
+                        ERROR
+                        Hei! Olen Autenttinen AI Botti lähitulevaisuudesta. Kuinka voin auttaa?
+                    </p>
+                </div>
+            </div>
+            <div class="bot-input">
+                <input class="user-input" placeholder="Kirjoita kysymyksesi tähän..." />
+                <button class="send-input-btn">Lähetä</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meistä</h3>
+                <p>Ryhmäprojekti osana Taitotalon Tieto- ja viestintätekniikan perustutkintoa.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Tiimin Jäsenet</h3>
+                <ul class="team">
+                    <li>Elmeri Savioja</li>
+                    <li>Jari Karri</li>
+                    <li>Kaspar Kivi</li>
+                    <li>Olli-Pekka Korpela</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ota yhteyttä</h3>
+                <p>Sähköposti: <a href="mailto:group@example.com">henkilotweb16@gmail.com</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Henkilöt. Kaikki oikeudet pidätetään.</p>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

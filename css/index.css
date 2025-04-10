@@ -1,0 +1,19 @@
+/* Etusivu */
+
+.container {
+  display: flex;
+
+}
+
+.background-video {
+  object-fit: cover;
+  
+}
+
+.dimmer {
+  position:relative;
+  height: 40%;
+  width: 100%;
+  z-index: 1;
+}
+

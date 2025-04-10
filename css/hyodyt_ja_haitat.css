@@ -1,0 +1,217 @@
+
+/*Bodyn perusasetukset*/
+body {
+    background: linear-gradient(240deg,  
+        #D6932C 1%,  
+        #398092 5%,  
+        #398092 82%,  
+        #B04A1E 98%);
+    height: 100vh; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
+    margin: 0;
+    color: #D6932C;
+    /*text-shadow: 10px 10px 15px black;*/ /* Siirsin .container, koska vaikutti myös headeriin ja footeriin */
+}
+/*Body loppuu*/
+
+/*Parallax taustakuva*/
+.parallax {
+    background-image: url(../img/hyodyt-ja-haitat/Parallax.jpg); /* Vaihda tähän oikea kuvan polku */
+    height: 500px; /* Säädä korkeutta tarpeen mukaan */
+    background-attachment: fixed; /* Tekee parallax-efektin */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 20px;
+}
+
+/*Parallax loppuu*/
+
+
+/*Pääotsikko alkaa*/
+h1 {
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 100px;  /* ELMERI: Lisäsin, koska muuten otsikko jää headerin alle */
+}
+/*Pääotsikko loppuu*/
+
+
+
+/* Koko sisältöalue */
+.container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    text-shadow: 10px 10px 15px black;
+}
+
+/* Hyödyt teksti ja kuva alkaa*/
+.text-image-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 5px;
+    gap: 20px; /* Jättää pienen välin tekstin ja kuvan väliin */
+}
+
+/* Tekstialue vasemmalle*/
+.paragraph-container {
+    flex: 1;
+    text-align: left;
+}
+
+/* Tekstialueen väliotsikko keskelle tekstialueessa */
+.paragraph-container h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Exo 2", sans-serif;
+}
+
+.paragraph-container p {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Kuva oikealle */
+.img-container {
+    flex-shrink: 0;
+    width: 630px;
+    margin-left: auto;
+}
+
+/* Kuvan skaalautuminen */
+.img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3%;
+    margin-top: 30px;
+    box-shadow: 10px 10px 15px black;
+}
+/*Hyödyt teksti ja kuva loppuu*/
+
+/*Haitat teksti ja kuva alkaa*/
+.text-image-container-reverse {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 5px; /* Nyt oikealla on marginaalia */
+    gap: 20px; /* Jättää pienen välin tekstin ja kuvan väliin */
+}
+
+/* Kuva vasemmalle */
+.img-container-left {
+    flex-shrink: 0;
+    width: 630px;
+    margin-right: auto; /* Työntää kuvan vasemmalle */
+}
+
+/* Kuvan skaalautuminen */
+.img-container-left img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3%;
+    margin-top: 40px;
+    box-shadow: 10px 10px 15px black;
+}
+
+/* Tekstialue oikealle*/
+.paragraph-container-right {
+    flex: 1;
+    text-align: left;
+}
+
+/* Tekstialueen väliotsikko keskelle tekstialueessa */
+.paragraph-container-right h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Exo 2", sans-serif;
+   
+}
+
+.paragraph-container-right p {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+/*Haitat teksti ja kuva loppuu*/
+
+/*Yhteenveto alkaa*/
+/*Tekstialue keskelle*/
+.centered-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 80%; /* Sopiva leveys */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+.centered-text-container p {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+/*Yhteenveto loppuu*/
+
+/* 🔹 Responsiivinen asettelu pienemmillä näytöillä */
+@media (max-width: 1024px) {
+    .text-image-container {
+        flex-direction: column; /* Teksti ja kuva allekkain */
+        align-items: center; /* Keskittää sisällön */
+        text-align: center;
+    }
+
+    .paragraph-container {
+        max-width: 80%; /* Teksti ei veny liikaa */
+    }
+
+    .img-container {
+        width: 80%; /* Skaalaa kuvan leveämmäksi */
+        margin: 0 auto; /* Keskittää kuvan */
+    }
+    .text-image-container-reverse {
+        flex-direction: column; /* Teksti ja kuva allekkain */
+        align-items: center; /* Keskittää sisällön */
+        text-align: center;
+    }
+
+    .paragraph-container-right {
+        max-width: 80%;
+    }
+
+    .img-container-left {
+        width: 80%; /* Skaalaa kuvan leveämmäksi */
+        margin: 0 auto; /* Keskittää kuvan */
+    }
+
+    .centered-text-container {
+        width: 80%; /* Pienemmällä näytöllä hieman leveämpi */
+    }
+
+    body {
+        height: 500%; /*Venyttää sivun korkeutta mobiilissa niin lineargradient säilyy ehjänä*/
+    }
+
+    
+}
+
+
+/*Responsiivinen asettelu loppuu*/
+
+
+
+

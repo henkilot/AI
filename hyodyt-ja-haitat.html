@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekoälyn hyödyt ja haitat</title>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="includes/hamburgers/dist/hamburgers.css">
+    <link rel="stylesheet" href="css/hyodyt_ja_haitat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/index.html">
+                    <img class="logo-image" src="/img/header/t-1000.png" alt="Logo"/>
+                </a>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Etusivu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hyodyt-ja-haitat.html">Tekoälyn hyödyt ja haitat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aifuture.html">Tekoälyn tulevaisuus</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aikyber.html">Tekoäly Kyberturvallisuudessa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="chatbot.html">Chatbot</a>
+                </li>
+
+                <li class="nav-item">
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Meistä</a></li>
+                        <span></span>
+                        <li><a href="#">Huvimaja</a></li>
+                        <span></span>
+                        <li><a href="#">Asetukset</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <button onclick="burgerButtonActiveToggle()" class="hamburger hamburger--emphatic" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Tekoälyn hyödyt</h1>
+        <!--Teksti vasemmalla ja kuva oikealla alkaa-->
+        <div class="text-image-container">
+            <div class="paragraph-container">
+                <h3>Tehokkuus ja automaatio</h3>
+                <p>Tekoäly voi automatisoida monia rutiininomaisia tehtäviä, 
+                jolloin ihmisten ei tarvitse tehdä toistuvia, aikaa vieviä työtehtäviä. 
+                Tämä voi lisätä tuottavuutta ja vapauttaa aikaa luovempaan ja enemmän 
+                arvostettuihin tehtäviin.
+                </p>
+                <h3>Tarkkuus ja virheiden vähentäminen</h3>
+                <p>AI-järjestelmät voivat analysoida valtavia määriä dataa ja tehdä 
+                päätöksiä tarkasti ilman inhimillisiä virheitä. Tämä voi olla erityisen 
+                hyödyllistä esimerkiksi terveydenhuollossa tai tieteellisessä tutkimuksessa.</p>
+                <h3>Parempi päätöksenteko</h3>
+                <p>AI voi käsitellä suuria tietomassoja ja tuottaa analyysejä, joiden avulla voidaan
+                tehdä parempia ja nopeampia päätöksiä. Tämä on tärkeää monilla aloilla, kuten liiketoiminnassa, 
+                finanssissa ja logistiikassa</p>
+                <h3>Uudet mahdollisuudet ja innovaatiot</h3>
+                <p>Tekoäly voi avata uusia liiketoiminta- ja tutkimusmahdollisuuksia, joita ei olisi muuten 
+                saavutettavissa. Esimerkiksi tekoälyn käyttö lääketieteellisessä diagnostiikassa on johtanut 
+                parempiin hoitomenetelmiin.</p>
+                <h3>Muutokset yhteiskunnassa</h3>
+                <p>Tekoäly voi edistää yhteiskunnallisia muutoksia, kuten paremmin kohdennettua julkista palvelua,
+                ja parantaa elämänlaatua esimerkiksi älykkäiden kaupunkiratkaisujen avulla.</p>
+            </div>
+            <div class="img-container">
+                <img src="img/hyodyt-ja-haitat/Hyödyt.jpg" alt="hyödyt">
+            </div>
+        </div>
+        <!--Teksti vasemmalla ja kuva oikealla loppuu-->
+    </div>
+   <!--Hyödyt osion sisällön säilö loppuu-->
+
+   <!--Parallax kuva keskellä sivua-->
+    <div class="parallax"></div>
+   <!--Parallax kuva loppuu-->
+
+   <!--Sisällön säilö alkaa haitat osiolle--> 
+    <div class="container">
+        <h1>Tekoälyn haitat</h1>
+        <!--Kuva vasemmalla ja teksti oikealla alkaa-->
+        <div class="text-image-container-reverse">
+            <div class="img-container-left">
+                <img src="img/hyodyt-ja-haitat/Haitat.jpg" alt="haitat">
+            </div>
+            <div class="paragraph-container-right">
+                <h3>Työpaikkojen väheneminen</h3>
+                <p>Tekoäly voi korvata joitakin työtehtäviä, 
+                erityisesti rutiininomaisia tai yksinkertaisia tehtäviä, 
+                kuten asiakaspalvelu tai varastotyö. Tämä voi johtaa työttömyyteen 
+                ja taloudellisiin eriarvoisuuksiin.</p>
+                <h3>Eettiset kysymykset</h3>
+                <p>AI:n käyttö herättää monia eettisiä huolia, kuten yksityisyyden 
+                suojaa, ennakkoluulojen riskejä (esimerkiksi algoritmien puolueellisuus)
+                ja ihmisten vapauden rajoittamista, jos AI tekee tärkeitä päätöksiä ilman
+                ihmisvalvontaa.</p>
+                <h3>Tietoturva ja kyberturvallisuus</h3>
+                <p>Tekoäly voi olla haavoittuva kyberhyökkäyksille, ja sen käyttö voi johtaa
+                väärinkäytöksiin, kuten identiteettivarkauksiin tai tietomurtoihin.</p>
+                <h3>Liiallinen luottamus tekoälyyn</h3>
+                <p>Jos ihmiset alkavat liikaa luottaa tekoälyn tekemiin päätöksiin, se voi 
+                johtaa ongelmiin, erityisesti silloin, jos AI tekee virheellisiä tai huonosti
+                perusteltuja päätöksiä. Ihmisten valvonta on edelleen tärkeää.</p>
+                <h3>Yksityisyyden menetys</h3>
+                <p>AI-järjestelmät keräävät ja käsittelevät suuria määriä dataa, mikä voi uhata
+                yksilöiden yksityisyyttä, jos tätä dataa käytetään väärin.</p>
+            </div>
+        </div>
+        <!--Kuva vasemmalla ja teksti oikealla loppuu-->
+    </div>
+    <!--Haitat osion sisällön säilö loppuu-->
+
+    <!--Yhteenveto osion sisällön säilö alkaa-->
+    <div class="container">
+        <h1>Yhteenveto</h1>
+        <!--Teksti keskellä sivua alkaa-->
+        <div class="centered-text-container">
+            <p>Tekoäly tuo mukanaan sekä hyötyjä että haasteita.  
+            Sen avulla voidaan automatisoida työtehtäviä ja lisätä tehokkuutta,  
+            mutta samalla on huomioitava eettiset kysymykset ja teknologian vaikutukset yhteiskuntaan.
+            </p>
+        </div>
+        <!--Teksti keskellä sivua loppuu-->
+    </div>
+    <!--Yhteenveto osion säilö loppuu-->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meistä</h3>
+                <p>Ryhmäprojekti osana Taitotalon Tieto- ja viestintätekniikan perustutkintoa.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Tiimin Jäsenet</h3>
+                <ul class="team">
+                    <li>Elmeri Savioja</li>
+                    <li>Jari Karri</li>
+                    <li>Kaspar Kivi</li>
+                    <li>Olli-Pekka Korpela</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ota yhteyttä</h3>
+                <p>Sähköposti: <a href="mailto:group@example.com">henkilotweb16@gmail.com</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Henkilöt. Kaikki oikeudet pidätetään.</p>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
