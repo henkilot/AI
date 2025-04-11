@@ -28,7 +28,7 @@ body {
 
 
 /*Pääotsikko alkaa*/
-h1 {
+.h1 {
     font-family: "Orbitron", sans-serif;
     font-weight: bold;
     font-size: 32px;
