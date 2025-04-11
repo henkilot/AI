@@ -6,7 +6,7 @@ body {
         #398092 5%,  
         #398092 82%,  
         #B04A1E 98%);
-    height: 130vh; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
+    height: 133.5vh; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
     margin: 0;
     color: #D6932C;
     /*text-shadow: 10px 10px 15px black;*/ /* Siirsin .container, koska vaikutti myös headeriin ja footeriin */
