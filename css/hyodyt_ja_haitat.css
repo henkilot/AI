@@ -65,11 +65,11 @@ body {
 }
 
 /* Tekstialueen väliotsikko keskelle tekstialueessa */
-.paragraph-container h3 {
+.paragraph-container-h3 {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 20px;
     font-family: "Exo 2", sans-serif;
 }
 
@@ -128,16 +128,6 @@ body {
 .paragraph-container-right {
     flex: 1;
     text-align: left;
-}
-
-/* Tekstialueen väliotsikko keskelle tekstialueessa */
-.paragraph-container-right h3 {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-family: "Exo 2", sans-serif;
-   
 }
 
 .paragraph-container-right p {
