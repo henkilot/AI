@@ -1,7 +1,7 @@
 /* CONTENT */
 .content { /* vaihdoin <p> tagin <div> tagiksi ja lisäsin vähän tilaa ylös ja alas niin ei jää headerin ja footerin alle */
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 5rem; /* ELMERI: tilaa ylös */
+    margin-bottom: 5rem; /* ELMERI: tilaa alas */
 }
 
 .container {

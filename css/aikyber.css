@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    height: 100vh;
+    height: 100%; /* ELMERI: Tää oli mun jäljiltä jäänyt 100vh eli näytti vaan yhden "ruudullisen" eikä skaalautunut materiaalin mukaan */
     background-color: #1b2e38;
     margin-top: 56px;
     display: flex;
@@ -8,17 +8,19 @@
 }
 
 .text-container {
-    margin-top: 5rem;
-    width: 40%;
-    height: 10%;
+    /* tekstilaatikko */
+    margin-top: 5rem; /* ELMERI: tilaa ylös */
+    margin-bottom: 5rem; /* ELMERI: tilaa alas */
+    width: 60%;
     font-size: 20px;
     text-align: center;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 1px solid blue; /* ELMERI: "debuggaus" borderi, näkee miten laatikko menee */
+    padding: 1rem;
 }
 
-.fa-gears {
-    margin-right: 2rem;
+.text-container .text {
+    /* tekstilaatikon palat */
+    border: 1px solid red; /* ELMERI: "debuggaus" borderi, näkee miten laatikot menee */
+    padding: 1rem;
 }
