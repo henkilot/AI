@@ -2,6 +2,9 @@
     font-family: "Orbitron", sans-serif;
 }
 
+html, body {
+    min-height: 100%;
+}
 
 .header {
     width: 100%;
@@ -11,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     backdrop-filter: blur(20px);
-    background-color: #0F1b22;
+    background-color: #B04A1E;
 }
 
 .header-container {
@@ -44,13 +47,13 @@
 }
 
 .nav-item {
-    background-color: #0F1b22;
+    background-color: #B04A1E;
     padding: 1.2rem;
     border: 1px solid transparent;
 }
 
 .nav-item:last-child {
-    background-color: #0F1b22;
+    background-color: #B04A1E;
 }
 
 .nav-link {
@@ -72,7 +75,7 @@
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: #0F1b22;
+    background-color: #B04A1E;
     top: 55px;
     right: 0;
     width: 200px;
