@@ -1,9 +1,7 @@
 .footer {
     background-color: #398092;
-    color: #fff;
     padding: 20px 0;
     font-family: Arial, sans-serif;
-    
 }
 
 .footer-content {
@@ -19,27 +17,32 @@
     flex: 1;
     min-width: 250px;
     margin: 10px 20px;
+    color: rgb(221, 221, 221);
 }
 
 .footer-section h3 {
-    color: #fff;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    text-decoration: underline;
 }
 
 .footer-section p, .footer-section li {
-    color: #bbb;
-    line-height: 1.6;
+    line-height: 1.2;
     margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .footer-section a {
-    color: #046bf3;
+    color: black;
     text-decoration: none;
 }
 
 .footer-section a:hover {
     text-decoration: underline;
+    color: #B04A1E;
 }
 
 .team {
@@ -53,7 +56,8 @@
     border-top: 1px solid #444;
     margin-top: 20px;
     color: #bbb;
-    font-size: 14px;
+    font-size: 16px;
+    color: white;
 }
 
 /* Responsiivisuutta */
