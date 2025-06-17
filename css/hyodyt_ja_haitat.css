@@ -1,14 +1,10 @@
 
 /*Bodyn perusasetukset*/
 body {
-    background: linear-gradient(240deg,  
-        #D6932C 1%,  
-        #398092 5%,  
-        #398092 82%,  
-        #B04A1E 98%);
+   background-color: black;
     height: 100%; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
     margin: 0;
-    color: #D6932C;
+    color: white;
     /*text-shadow: 10px 10px 15px black;*/ /* Siirsin .container, koska vaikutti myös headeriin ja footeriin */
 }
 /*Body loppuu*/
@@ -29,13 +25,51 @@ body {
 
 /*Pääotsikko alkaa*/
 .h1 {
-    font-family: "Orbitron", sans-serif;
-    font-weight: bold;
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 40px;
-    margin-top: 7rem; /* ELMERI: tilaa ylös */
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 7rem;
+  margin-bottom: 40px;
+  color: #fff;
+  position: relative;
+  display: inline-block; /* estetään leviäminen koko riville */
 }
+
+.shine-text {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap; /* estää rivinvaihdon */
+}
+
+.shine-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 2.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    left: -60%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
 /*Pääotsikko loppuu*/
 
 
@@ -45,6 +79,7 @@ body {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* Hyödyt teksti ja kuva alkaa*/
@@ -62,21 +97,25 @@ body {
 .paragraph-container {
     flex: 1;
     text-align: left;
+    margin-top: 1rem;
 }
 
 /* Tekstialueen väliotsikko keskelle tekstialueessa */
 .paragraph-container-h3 {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 700;
     margin: 20px;
     font-family: "Exo 2", sans-serif;
 }
 
 .paragraph-container p {
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 /* Kuva oikealle */
@@ -93,7 +132,7 @@ body {
     display: block;
     border-radius: 3%;
     margin-top: 30px;
-    box-shadow: 10px 10px 15px black;
+    box-shadow: 5px 10px 15px whitesmoke;
 }
 /*Hyödyt teksti ja kuva loppuu*/
 
@@ -121,19 +160,25 @@ body {
     display: block;
     border-radius: 3%;
     margin-top: 40px;
-    box-shadow: 10px 10px 15px black;
+    box-shadow: 5px 10px 15px whitesmoke;
 }
 
 /* Tekstialue oikealle*/
 .paragraph-container-right {
     flex: 1;
     text-align: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .paragraph-container-right p {
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 /*Haitat teksti ja kuva loppuu*/
 
@@ -152,8 +197,9 @@ body {
 
 .centered-text-container p {
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+     font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.4rem;
 }
 /*Yhteenveto loppuu*/
 
@@ -190,13 +236,7 @@ body {
 
     .centered-text-container {
         width: 80%; /* Pienemmällä näytöllä hieman leveämpi */
-    }
-
-    body {
-        height: 500%; /*Venyttää sivun korkeutta mobiilissa niin lineargradient säilyy ehjänä*/
-    }
-
-    
+    }   
 }
 
 
