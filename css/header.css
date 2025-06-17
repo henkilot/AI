@@ -51,6 +51,8 @@ html, body {
     background-color: #B04A1E;
     padding: 1.2rem;
     border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .nav-item:last-child {
