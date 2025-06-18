@@ -239,7 +239,7 @@ body {
     }   
 }
 
-@media (max-width: 4200px) {
+@media (max-width: 420px) {
   .parallax {
     background-attachment: scroll; /* fallback mobiilille */
   }
