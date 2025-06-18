@@ -239,6 +239,11 @@ body {
     }   
 }
 
+@media (max-width: 4200px) {
+  .parallax {
+    background-attachment: scroll; /* fallback mobiilille */
+  }
+}
 
 /*Responsiivinen asettelu loppuu*/
 
