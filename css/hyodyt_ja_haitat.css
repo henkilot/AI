@@ -1,4 +1,3 @@
-
 /*Bodyn perusasetukset*/
 body {
    background-color: black;
@@ -19,7 +18,6 @@ body {
     background-size: cover;
     margin-top: 20px;
 }
-
 /*Parallax loppuu*/
 
 
@@ -69,10 +67,7 @@ body {
     left: 120%;
   }
 }
-
 /*Pääotsikko loppuu*/
-
-
 
 /* Koko sisältöalue */
 .container {
@@ -238,8 +233,6 @@ body {
         width: 80%; /* Pienemmällä näytöllä hieman leveämpi */
     }   
 }
-
-
 /*Responsiivinen asettelu loppuu*/
 
 
