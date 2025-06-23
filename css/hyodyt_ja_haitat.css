@@ -233,6 +233,13 @@ body {
         width: 80%; /* Pienemmällä näytöllä hieman leveämpi */
     }   
 }
+
+/*Parallax poistetaan mobiilissa*/
+@media (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll; /* Poistetaan fixed mobiilissa */
+    }
+}
 /*Responsiivinen asettelu loppuu*/
 
 
