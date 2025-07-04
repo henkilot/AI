@@ -25,7 +25,6 @@ body {
 .h1 {
   font-family: "Orbitron", sans-serif;
   font-size: 2rem;
-  font-weight: bold;
   text-align: center;
   margin-top: 7rem;
   margin-bottom: 40px;
@@ -99,7 +98,6 @@ body {
 .paragraph-container-h3 {
     text-align: center;
     font-size: 1.8rem;
-    font-weight: 700;
     margin: 20px;
     font-family: "Exo 2", sans-serif;
 }
@@ -107,7 +105,6 @@ body {
 .paragraph-container p {
     font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
-    font-weight: 500;
     line-height: 1.4rem;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -170,7 +167,6 @@ body {
 .paragraph-container-right p {
     font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
-    font-weight: 500;
     line-height: 1.4rem;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -192,8 +188,7 @@ body {
 
 .centered-text-container p {
     font-family: "Roboto", sans-serif;
-     font-size: 1.2rem;
-    font-weight: 500;
+    font-size: 1.2rem;
     line-height: 1.4rem;
 }
 /*Yhteenveto loppuu*/
