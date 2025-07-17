@@ -2,12 +2,7 @@
 <html lang="fi">
 <head>
   <link rel="stylesheet" href="./css/aifuture.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekoäly eilen, tänään ja huomenna</title>
-</head>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 
@@ -18,81 +13,80 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="includes/hamburgers/dist/hamburgers.css">
+    <link rel="stylesheet" href="css/aifuture.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
 
-<!-- 
-<style>
-
-* {
-  box-sizing: border-box;
- 
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-  @media (max-width: 500px) {
-  .container {
-    flex-direction: column;
-    box-sizing: border-box;
-    width: 200px;
-    justify-self: center;
-  }
-  h1 {
-    box-sizing: border-box;
-    width: 200px;
-    justify-self: center;
-  }
-  h2 {
-    box-sizing: border-box;
-    width: 200px;
-    justify-self: center;
-  }
-}
-
-    .container {
-    display: flex;
-    align-items: flex-start;
-    
-    justify-content: space-between;
-    gap: 1rem;
-    align-content: stretch;
-    
-  }
-  
-  img {
-    max-width: 100%;
-    max-height:100%;
-    
-  }
-  
-  .text {
-    font-size: 16px;
-   
-    font-family: "Roboto";
-  }
-
-  h1 {
-    text-align: center;
-    font-family: "Orbitron";
-  }
-  h2 {
-    text-align: center;
-    font-family: "Exo 2";
-    
-}
-p {
-  text-align: justify;
-}
-.kokosivu {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-    </style>
-
--->
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekoäly eilen, tänään ja huomenna</title>
+</head>
 <body>
+  <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img class="logo-image" src="img/header/t-1000.png" alt="Logo"/>
+                </a>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Etusivu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hyodyt-ja-haitat.html">Tekoälyn hyödyt ja haitat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aifuture.html">Tekoälyn tulevaisuus</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aikyber.html">Tekoäly Kyberturvallisuudessa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="chatbot.html">Chatbot</a>
+                </li>
+
+                <li class="nav-item">
+                      <ul class="dropdown-menu">
+                        <!--Piilossa isolla näytöllä-->
+                        <div class="hide-on-desktop">
+                            <li><a href="index.html">Etusivu</a></li>
+                            <span></span>
+                            <li><a href="hyodyt-ja-haitat.html">Tekoälyn hyödyt ja haitat</a></li>
+                            <span></span>
+                            <li><a href="aifuture.html">Tekoälyn tulevaisuus</a></li>
+                            <span></span>
+                            <li><a href="aikyber.html">Tekoäly Kyberturvallisuudessa</a></li>
+                            <span></span>
+                            <li><a href="chatbot.html">Chatbot</a></li>
+                            <span></span>
+                        </div>
+                        <!--Näkyvissä isolla näytöllä-->
+                        <li><a href="#">Meistä</a></li>
+                        <span></span>
+                        <li><a href="#">Huvimaja</a></li>
+                        <span></span>
+                        <li><a href="#">Asetukset</a></li>
+                    </ul>
+                </li>
+            </ul>           
+
+            <button onclick="burgerButtonActiveToggle()" class="hamburger hamburger--emphatic" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </nav>
+    </header>
+
  <div class="kokosivu">
     <h1 class="otsikko1">
         Tekoäly eilen, tänään ja huomenna
@@ -174,6 +168,33 @@ Erityisesti kyberturvallisuus tulee olemaan avainasemassa tekoälyn kehityksess�
 
    
   </div>
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Meistä</h3>
+                <p>Ryhmäprojekti osana Taitotalon Tieto- ja viestintätekniikan perustutkintoa.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Tiimin Jäsenet</h3>
+                <ul class="team">
+                    <li>Elmeri Savioja</li>
+                    <li>Jari Karri</li>
+                    <li>Kaspar Kivi</li>
+                    <li>Olli-Pekka Korpela</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ota yhteyttä</h3>
+                <p>Sähköposti: <a href="mailto:group@example.com">henkilotweb16@gmail.com</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Henkilöt. Kaikki oikeudet pidätetään.</p>
+        </div>
+    </footer>
 </body>
 </html>
 
