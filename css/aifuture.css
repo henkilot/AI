@@ -64,9 +64,12 @@
       text-align: center;
       font-family: "Exo 2";
       font-size: 1.8rem;
+      margin: 2rem;
   }
 
   .kokosivu {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
   }
