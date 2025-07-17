@@ -1,0 +1,71 @@
+
+* {
+    box-sizing: border-box;
+   
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+  }
+  
+    @media (max-width: 500px) {
+    .container {
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 200px;
+      justify-self: center;
+    }
+    .otsikko1 {
+      box-sizing: border-box;
+      width: 200px;
+      justify-self: center;
+    }
+    .väliotsikko {
+      box-sizing: border-box;
+      width: 200px;
+      justify-self: center;
+    }
+  }
+  
+      .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      align-content: stretch;
+      
+      
+    }
+    
+    .kuvet {
+      max-width: 100%;
+      max-height:100%;
+      
+    }
+    
+    .text {
+      color: white;
+      font-size: 1.2rem;
+      font-family: "Roboto";
+      line-height: 1.4rem;
+    }
+  
+    .otsikko1 {
+      color: white;
+      text-align: center;
+      font-family: "Orbitron";
+      font-size: 2rem;
+    }
+    .väliotsikko {
+      color: white;
+      text-align: center;
+      font-family: "Exo 2";
+      font-size: 1.8rem;
+  }
+
+  .kokosivu {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
