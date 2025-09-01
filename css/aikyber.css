@@ -39,3 +39,8 @@ h1 {
     border: 1px solid red; /* ELMERI: "debuggaus" borderi, näkee miten laatikot menee */
     padding: 1rem;
 }
+@media screen and (max-width: 768px) {
+    .image {
+        display: none;
+    }
+}
