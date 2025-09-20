@@ -1,0 +1,71 @@
+/*Bodyn perusasetukset*/
+body {
+   background-color: black;
+    height: 100%; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
+    margin: 0;
+    color: white;
+    /*text-shadow: 10px 10px 15px black;*/ /* Siirsin .container, koska vaikutti myös headeriin ja footeriin */
+}
+/*Body loppuu*/
+
+/*Pääotsikko alkaa*/
+.h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 7rem;
+  margin-bottom: 40px;
+  color: #fff;
+  position: relative;
+  display: inline-block; /* estetään leviäminen koko riville */
+}
+
+.shine-text {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap; /* estää rivinvaihdon */
+}
+
+.shine-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 2.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    left: -60%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+/*Pääotsikko loppuu*/
+
+/* Koko sisältöalue */
+.container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+
+
+
+
