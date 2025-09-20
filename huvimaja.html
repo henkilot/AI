@@ -79,6 +79,30 @@
 
         <!--Ensinmäinen sisältö alkaa-->
         <div class="content-first">
+            <!-- Sitaattikone alkaa -->
+            <div class="quote-machine">
+            
+            <!-- Onnenpyörä ja nappi -->
+            <div class="wheel-container">
+                <!-- Pyörä itse (tyylitetään CSS:ssä) -->
+                <div id="wheel"></div>
+                <!-- Nappi pyörittämiseen -->
+                <button id="spinButton">Pyöräytä</button>
+            </div>
+            
+            <!-- Robotti ja sen puhekupla -->
+            <div class="robot">
+                <!-- Robotin pää CSS:llä piirretty -->
+                <div class="robot-head">
+                    <div class="robot-mouth"></div>
+                </div>
+                <!-- Puhekupla -->
+                <div class="speech-bubble" id="quoteText">Pyöräytä pyörää!</div>
+            </div>
+
+
+            </div>
+            <!-- Sitaattikone loppuu -->
 
         </div>
         <!--Ensinmäinen sisältö loppuu-->
@@ -112,6 +136,22 @@
             <p>&copy; 2025 Henkilöt. Kaikki oikeudet pidätetään.</p>
         </div>
     </footer>
+
+    <!-- Pelottava robot-overlay -->
+    <div id="scaryRobot">
+        <div class="scary-head">
+            <div class="scary-eye left"></div>
+            <div class="scary-eye right"></div>
+            <div class="scary-horn left"></div>
+            <div class="scary-horn right"></div>
+            <div class="robot-mouth"></div>
+        </div>
+        <div id="scaryQuote">Boo!</div>
+        <!-- Pelottavan robotin ääni -->
+        <audio id="scarySound" src="audio/reliable-safe-327618.mp3" preload="auto"></audio>
+    </div>
+    
+
 
     <script src="js/index.js"></script>
 </body>

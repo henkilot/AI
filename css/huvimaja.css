@@ -1,10 +1,13 @@
 /*Bodyn perusasetukset*/
 body {
    background-color: black;
-    height: 100%; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
-    margin: 0;
-    color: white;
-    /*text-shadow: 10px 10px 15px black;*/ /* Siirsin .container, koska vaikutti myös headeriin ja footeriin */
+   height: 100%; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
+   margin: 0;
+   color: white;
+    min-height: 100vh; /* vähintään koko näytön korkeus */
+    display: flex;
+    flex-direction: column;
+   /*text-shadow: 10px 10px 15px black;*/ /* Siirsin .container, koska vaikutti myös headeriin ja footeriin */
 }
 /*Body loppuu*/
 
@@ -61,11 +64,211 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     text-align: center;
+    flex: 1; /* vie kaiken jäljelle jäävän tilan footerin alapuolelle */
+}
+
+/* --- KOKO SITAATTIKONEEN ASETTELU --- */
+.quote-machine {
+  display: flex;              /* Asetellaan pyörä ja robotti vierekkäin */
+  justify-content: center;    /* Keskitetään vaakasuunnassa */
+  align-items: center;        /* Keskitetään pystysuunnassa */
+  gap: 3rem;                  /* Väli pyörän ja robotin välillä */
+  margin-top: 3rem;           /* Yläreunaan tilaa */
+  flex-wrap: wrap;            /* Allekkain pienemmillä näytöillä */
+}
+
+/* --- PYÖRÄ + NAPPI --- */
+.wheel-container {
+  text-align: center;         /* Keskittää pyörän ja napin */
+}
+
+/* Onnenpyörä itse */
+#wheel {
+  width: 200px;
+  height: 200px;
+  border: 10px solid #fff;    /* Valkoinen reuna */
+  border-radius: 50%;         /* Pyöreä muoto */
+  /* Värilliset sektorit (kuin pizzaviipaleet) */
+  background: conic-gradient(
+    #ff4d4d 0deg 60deg,
+    #4dff4d 60deg 120deg,
+    #4d4dff 120deg 180deg,
+    #ffff4d 180deg 240deg,
+    #ff4dff 240deg 300deg,
+    #4dffff 300deg 360deg
+  );
+  transition: transform 4s cubic-bezier(0.25, 1, 0.5, 1); 
+  margin: 0 auto 1rem;        /* Vähän väliä napin yläpuolella */
+}
+
+/* Pyöräytysnapin ulkoasu */
+#spinButton {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #333;
+  color: #fff;
+  transition: background 0.3s;
+}
+#spinButton:hover {
+  background: #555;           /* Hover-väri */
+}
+
+/* --- ROBOTTI + PUHEKUPLA --- */
+.robot {
+  position: relative;
+  text-align: center;
+}
+
+/* Robotin pää kokonaan CSS:llä */
+.robot-head {
+  width: 150px;
+  height: 150px;
+  background: #666;              /* Harmaa pää */
+  border: 5px solid #333;        /* Tumma reuna */
+  border-radius: 20px;           /* Pyöristetyt kulmat */
+  position: relative;
+  margin: 0 auto;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.4);
+}
+
+/* Silmät */
+.robot-head::before,
+.robot-head::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  width: 25px;
+  height: 25px;
+  background: #0ff;              /* Sininen valo */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #0ff;
+}
+.robot-head::before { left: 30px; }
+.robot-head::after { right: 30px; }
+
+/* Suu */
+.robot-mouth {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 15px;
+  background: #222;              /* Tumma suu */
+  border-radius: 5px;
+}
+
+/* Suun animaatio */
+@keyframes mouthMoveRealistic {
+  0%, 100% { height: 15px; transform: translateX(-50%) scaleX(1); }   /* normaali suu */
+  25% { height: 25px; transform: translateX(-50%) scaleX(1.1); }      /* vähän venytys */
+  50% { height: 35px; transform: translateX(-50%) scaleX(1.2); }      /* suu auki isosti */
+  75% { height: 20px; transform: translateX(-50%) scaleX(0.9); }      /* kevyt supistus */
+}
+
+.robot-mouth.talking {
+  animation: mouthMoveRealistic 0.8s ease-in-out infinite;
 }
 
 
+/* Puhekupla robotin vieressä */
+.speech-bubble {
+  position: absolute;
+  top: -40px;                  /* Yläpuolelle hieman */
+  left: 100%;                  /* Robotin oikealle puolelle */
+  width: 200px;
+  padding: 10px;
+  background: white;           /* Valkoinen kupla */
+  color: black;                /* Musta teksti */
+  border-radius: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
 
+/* -------------------------- */
+/* PELOTTAVA ROBOTTI (overlay) */
+/* -------------------------- */
+#scaryRobot {
+    display: none; /* oletuksena piilotettu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.9); /* tumma läpinäkyvä overlay */
+    z-index: 9999; /* päällimmäisenä */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
 
+/* Iso pelottava pää */
+.scary-head {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: #333;
+    border-radius: 50%;
+    border: 5px solid #000;
+    box-shadow: 0 0 50px red inset, 0 0 50px red;
+    margin-bottom: 2rem;
+}
 
+/* Silmät punaisina ja loistavat */
+.scary-eye {
+    position: absolute;
+    top: 120px;
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+    box-shadow: 0 0 20px red, 0 0 40px red inset;
+}
+.scary-eye.left { left: 100px; }
+.scary-eye.right { right: 100px; }
 
+/* Sarvet */
+.scary-horn {
+    position: absolute;
+    top: -50px;
+    width: 60px;
+    height: 150px;
+    background: #111;
+    clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+}
+.scary-horn.left { left: 50px; transform: rotate(-20deg);}
+.scary-horn.right { right: 50px; transform: rotate(20deg);}
 
+/* Suu */
+#scaryRobot .robot-mouth {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 25px;
+    background: #222;
+    border-radius: 10px;
+}
+
+/* Suun liike */
+@keyframes scaryMouthMove {
+    0%, 100% { height: 25px; }
+    50% { height: 70px; }
+}
+#scaryRobot .robot-mouth.talking {
+    animation: scaryMouthMove 0.6s ease-in-out infinite;
+}
+
+/* Puhekupla pelottavalle robotille */
+#scaryQuote {
+    color: red;
+    font-size: 2rem;
+    font-family: "Orbitron", sans-serif;
+    text-shadow: 0 0 20px red, 0 0 40px black;
+}
