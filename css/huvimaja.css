@@ -11,6 +11,7 @@ body {
 }
 /*Body loppuu*/
 
+
 /*Pääotsikko alkaa*/
 .h1 {
   font-family: "Orbitron", sans-serif;
@@ -73,7 +74,8 @@ body {
   justify-content: center;    /* Keskitetään vaakasuunnassa */
   align-items: center;        /* Keskitetään pystysuunnassa */
   gap: 3rem;                  /* Väli pyörän ja robotin välillä */
-  margin-top: 3rem;           /* Yläreunaan tilaa */
+  margin-top: 3rem;  
+  margin-bottom: 1rem;         
   flex-wrap: wrap;            /* Allekkain pienemmillä näytöillä */
 }
 
@@ -179,7 +181,7 @@ body {
   position: absolute;
   top: -40px;                  /* Yläpuolelle hieman */
   left: 100%;                  /* Robotin oikealle puolelle */
-  width: 200px;
+  width: 180px;
   padding: 10px;
   background: white;           /* Valkoinen kupla */
   color: black;                /* Musta teksti */
@@ -308,6 +310,7 @@ body {
     font-family: "Orbitron", sans-serif;
     text-shadow: 0 0 20px red, 0 0 50px black;
     animation: quotePulse 1.2s ease-in-out infinite alternate;
+    margin-bottom: 1rem;
 }
 @keyframes quotePulse {
     0% { transform: scale(1); }
@@ -337,7 +340,7 @@ body {
 
   .speech-bubble {
     position: static;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     margin-top: 0;
     left: unset;
     top: unset;
@@ -347,18 +350,51 @@ body {
   }
 
   .robot-head {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   #wheel {
-    margin-bottom: 0.5rem;
+    margin-bottom:0.5rem;
+    width: 170px;
+    height: 170px;
+    margin-bottom: 1rem;
   }
   #spinButton {
     margin-bottom: 0.5rem;
   }
-
+  
   /* Pelottava robotin fontti pienempiin näyttöihin */
   #scaryQuote {
     font-size: 1.2rem;
   }
+}
+
+@media (max-width: 740px) and (orientation: landscape) {
+
+
+  #wheel {
+    width: 130px;
+    height: 130px;
+  }
+  
+  /* Pelottava robotin fontti pienempiin näyttöihin */
+  #scaryQuote {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 740px) and (orientation: landscape) {
+
+
+  #wheel {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .speech-bubble {
+    width: 70vw;
+    max-width: 150px;
+  }
+  
+  
 }
