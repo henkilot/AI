@@ -314,3 +314,51 @@ body {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
+
+/*Media Queries*/
+@media (max-width: 600px) {
+  .quote-machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .robot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+  }
+
+  .speech-bubble {
+    position: static;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    left: unset;
+    top: unset;
+    width: 90vw;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .robot-head {
+    margin-bottom: 0.5rem;
+  }
+
+  #wheel {
+    margin-bottom: 0.5rem;
+  }
+  #spinButton {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Pelottava robotin fontti pienempiin näyttöihin */
+  #scaryQuote {
+    font-size: 1.2rem;
+  }
+}
