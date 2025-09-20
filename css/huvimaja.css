@@ -190,6 +190,7 @@ body {
 }
 
 /* -------------------------- */
+/* -------------------------- */
 /* PELOTTAVA ROBOTTI (overlay) */
 /* -------------------------- */
 #scaryRobot {
@@ -199,67 +200,102 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.9); /* tumma läpinäkyvä overlay */
-    z-index: 9999; /* päällimmäisenä */
+    background: rgba(0,0,0,0.95); /* tummempi overlay */
+    z-index: 9999;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    animation: scaryRobotShake 0.6s ease-in-out infinite alternate;
+}
+
+/* Robottipään nytkähtely */
+@keyframes scaryRobotShake {
+    0% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-10px) rotate(-2deg); }
+    50% { transform: translateX(10px) rotate(2deg); }
+    75% { transform: translateX(-10px) rotate(-1deg); }
+    100% { transform: translateX(10px) rotate(1deg); }
 }
 
 /* Iso pelottava pää */
 .scary-head {
     position: relative;
-    width: 400px;
-    height: 400px;
-    background: #333;
+    width: 450px; /* suurempi kuin aiemmin */
+    height: 450px;
+    background: #111;
     border-radius: 50%;
     border: 5px solid #000;
-    box-shadow: 0 0 50px red inset, 0 0 50px red;
+    box-shadow: 0 0 80px red inset, 0 0 80px red;
     margin-bottom: 2rem;
+    animation: headPulse 1.2s ease-in-out infinite;
 }
 
-/* Silmät punaisina ja loistavat */
+/* Pulssiva pää */
+@keyframes headPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Silmät vilkkuvat ja punaiset */
 .scary-eye {
     position: absolute;
-    top: 120px;
-    width: 50px;
-    height: 50px;
+    top: 140px;
+    width: 60px;
+    height: 60px;
     background: red;
     border-radius: 50%;
-    box-shadow: 0 0 20px red, 0 0 40px red inset;
+    box-shadow: 0 0 30px red, 0 0 60px red inset;
+    animation: eyesBlink 1s infinite alternate;
 }
-.scary-eye.left { left: 100px; }
-.scary-eye.right { right: 100px; }
+.scary-eye.left { left: 110px; }
+.scary-eye.right { right: 110px; }
 
-/* Sarvet */
+/* Silmien vilkkuminen */
+@keyframes eyesBlink {
+    0%, 100% { background: red; box-shadow: 0 0 30px red, 0 0 60px red inset; }
+    50% { background: #550000; box-shadow: 0 0 10px #550000, 0 0 20px #550000 inset; }
+}
+
+/* Sarvet liikkuvat hieman */
 .scary-horn {
     position: absolute;
-    top: -50px;
+    top: -60px;
     width: 60px;
     height: 150px;
     background: #111;
     clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+    animation: hornsWiggle 1s ease-in-out infinite alternate;
 }
-.scary-horn.left { left: 50px; transform: rotate(-20deg);}
-.scary-horn.right { right: 50px; transform: rotate(20deg);}
+.scary-horn.left { left: 50px; transform: rotate(-20deg); }
+.scary-horn.right { right: 50px; transform: rotate(20deg); }
 
-/* Suu */
+@keyframes hornsWiggle {
+    0% { transform: rotate(-20deg); }
+    50% { transform: rotate(-25deg); }
+    100% { transform: rotate(-20deg); }
+}
+.scary-horn.right { animation-name: hornsWiggleRight; }
+@keyframes hornsWiggleRight {
+    0% { transform: rotate(20deg); }
+    50% { transform: rotate(25deg); }
+    100% { transform: rotate(20deg); }
+}
+
+/* Suu ja liike säilyy kuten ennen */
 #scaryRobot .robot-mouth {
     position: absolute;
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 25px;
+    width: 120px;
+    height: 30px;
     background: #222;
     border-radius: 10px;
 }
-
-/* Suun liike */
 @keyframes scaryMouthMove {
-    0%, 100% { height: 25px; }
-    50% { height: 70px; }
+    0%, 100% { height: 30px; }
+    50% { height: 80px; }
 }
 #scaryRobot .robot-mouth.talking {
     animation: scaryMouthMove 0.6s ease-in-out infinite;
@@ -268,7 +304,13 @@ body {
 /* Puhekupla pelottavalle robotille */
 #scaryQuote {
     color: red;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-family: "Orbitron", sans-serif;
-    text-shadow: 0 0 20px red, 0 0 40px black;
+    text-shadow: 0 0 20px red, 0 0 50px black;
+    animation: quotePulse 1.2s ease-in-out infinite alternate;
+}
+@keyframes quotePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }

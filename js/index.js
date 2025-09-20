@@ -23,7 +23,7 @@ const wheel = document.getElementById("wheel");
 const spinButton = document.getElementById("spinButton");
 const quoteText = document.getElementById("quoteText");
 const robotMouth = document.querySelector(".robot-mouth");
-const quoteMachine = document.querySelector(".quote-machine"); // koko kone-elementti
+const quoteMachine = document.querySelector(".quote-machine");
 
 let spinning = false;
 let lastIndex = -1;
@@ -35,9 +35,8 @@ let currentRotation = 0;
 const scaryRobot = document.getElementById("scaryRobot");
 const scaryQuote = document.getElementById("scaryQuote");
 const scaryMouth = scaryRobot ? scaryRobot.querySelector(".robot-mouth") : null;
-const scarySound = document.getElementById("scarySound"); // ääni
+const scarySound = document.getElementById("scarySound");
 
-// Lista pelottavista sitaateista
 const scaryQuotes = [
     "Hah! Nyt sinä pelästyit!",
     "Et pääse karkuun!",
@@ -48,10 +47,10 @@ const scaryQuotes = [
 
 // Laskuri pyöräytyksille
 let spinCount = 0;
-const minSpins = 3; // vähintään 3 pyöräytystä ennen mahdollisuutta
-const maxSpins = 6; // enintään 6 pyöräytystä
 
-// Funktio näyttää pelottavan robotin
+// Ensimmäinen satunnainen tavoite seuraavalle pelottavalle robotille
+let nextScarySpin = 3 + Math.floor(Math.random() * 3); // 3–5 seuraavaa
+
 function showScaryRobot() {
     if (!scaryRobot) return;
 
@@ -77,22 +76,15 @@ function showScaryRobot() {
     }
 
     // Piilotetaan pelottava robotti äänen pituuden jälkeen
-    if (scarySound) {
-        // Käytetään äänen duration-arvoa (sekunteina)
-        const durationMs = scarySound.duration * 1000 || 3000; // jos duration ei vielä latautunut, oletus 3s
-        setTimeout(() => {
-            scaryRobot.style.display = "none";
-            if (quoteMachine) quoteMachine.style.display = "flex";
-            if (scaryMouth) scaryMouth.classList.remove("talking");
-        }, durationMs);
-    } else {
-        // Jos ääntä ei ole, käytetään 3 sekuntia oletuksena
-        setTimeout(() => {
-            scaryRobot.style.display = "none";
-            if (quoteMachine) quoteMachine.style.display = "flex";
-            if (scaryMouth) scaryMouth.classList.remove("talking");
-        }, 3000);
-    }
+    const durationMs = (scarySound?.duration || 3) * 1000;
+    setTimeout(() => {
+        scaryRobot.style.display = "none";
+        if (quoteMachine) quoteMachine.style.display = "flex";
+        if (scaryMouth) scaryMouth.classList.remove("talking");
+
+        // Asetetaan uusi satunnainen tavoite seuraavalle pelottavalle robotille
+        nextScarySpin = spinCount + 3 + Math.floor(Math.random() * 3);
+    }, durationMs);
 }
 
 // ------------------------------
@@ -115,11 +107,9 @@ spinButton.addEventListener("click", () => {
     // SITAATIN NÄYTTÄMINEN PYÖRÄYKSEN JÄLKEEN
     // --------------------------
     setTimeout(() => {
-        // Tarkista, tuleeko pelottava robot
-        if (spinCount >= minSpins && spinCount <= maxSpins && Math.random() < 0.3) {
-            // 30% todennäköisyys pelottavalle robotille
+        // Tarkistetaan, tuleeko pelottava robotti
+        if (spinCount >= nextScarySpin) {
             showScaryRobot();
-            spinCount = 0; // nollaa laskuri seuraavaa kierrosta varten
         } else {
             // Näytetään normaali sitaatti
             let randomIndex;
@@ -136,6 +126,9 @@ spinButton.addEventListener("click", () => {
         spinning = false;
     }, 4000);
 });
+
+
+
 
 
 
