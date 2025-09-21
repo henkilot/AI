@@ -33,6 +33,13 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -o-object-fit: cover;           /* vanhat Operat */
+  -webkit-object-fit: cover;      /* vanhat Safarit */
+
+  /* Safari-renderöinnin pakotus */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
+
 
 
