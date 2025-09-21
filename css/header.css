@@ -15,7 +15,6 @@ html, body {
     justify-content: space-between;
     backdrop-filter: blur(20px);
     background-color: #B04A1E;
-
 }
 
 .header-container {
@@ -25,6 +24,7 @@ html, body {
     flex-direction: row;
     z-index: 4;
 }
+
 .logo {
     margin-left: 2rem;
 }
@@ -84,14 +84,14 @@ html, body {
     top: 55px;
     right: 0;
     width: 230px;
-    /* POISTA tai ÄLÄ käytä kiinteää height-arvoa */
-    /* height: auto;  --> tämä riittää, mutta voit poistaa sen kokonaan */
-    max-height: none; /* varmistaa ettei max-height rajoita */
-    overflow: visible; /* oletusarvo, jotta sisältö ei katkea */
+
+    /* ✅ mobiilikorjaus */
+    max-height: calc(100vh - 60px); /* rajoitetaan ruudun sisään */
+    overflow-y: auto;              /* scrolli jos menee yli */
+
     color: white;
     z-index: 5;
 }
-
 
 .dropdown-menu li {
     display: flex;
@@ -115,10 +115,7 @@ html, body {
     display: block;
 }
 
-
-
 /* HEADER ANIMATIONS */
-
 
 .nav-item:hover:not(:last-child) {
     position: relative;
@@ -135,7 +132,6 @@ html, body {
     }
 }
 
-
 .hide-on-desktop {
     display: none !important;
 }
@@ -148,6 +144,13 @@ html, body {
   .nav-link {
     display: none;
   }
-
 }
 
+/* Scrollbar-tyyli mobiilivalikkoon */
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 3px;
+}

@@ -1,7 +1,15 @@
 /* Etusivu */
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;     /* venyttää koko viewportin */
+  overflow-x: hidden; /* estää vaakasuuntaisen scrollin */
+}
+
 .container {
   display: flex;
+  min-height: 100vh; /* ottaa koko näkymän korkeuden */
 
 }
 
