@@ -1,13 +1,12 @@
 /*Bodyn perusasetukset*/
 body {
-   background-color: black;
-   height: 100%; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
-   margin: 0;
-   color: white;
+    background-color: black;
+    height: 100%; /* ELMERI: aiemmin oli 290vh, eli jatkoi myös footerin jälkeen kokonaisen ikkunan jälkeen */
+    margin: 0;
+    color: white;
     min-height: 100vh; /* vähintään koko näytön korkeus */
     display: flex;
     flex-direction: column;
-   /*text-shadow: 10px 10px 15px black;*/ /* Siirsin .container, koska vaikutti myös headeriin ja footeriin */
 }
 /*Body loppuu*/
 

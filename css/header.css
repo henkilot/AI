@@ -154,3 +154,59 @@ html, body {
   background: #fff;
   border-radius: 3px;
 }
+
+
+/* Asetukset-alavalikko */
+.dropdown-settings {
+    position: relative;  /* parent suhteessa alavalikkoon */
+    z-index: 1000;       /* navin päälle */
+}
+
+/* Alavalikko navin päälle */
+.settings-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;           /* hieman alaspäin linkin alta */
+    right: 0;            /* kiinni oikeaan reunaan */
+    background-color: #b04a1e;
+    border: 1px solid white;
+    width: 180px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    z-index: 1010;       /* varmistaa, että navin päällä */
+}
+
+/* Näytä kun klikkattu */
+.dropdown-settings.active .settings-submenu {
+    display: block;
+}
+
+/* Sisältö */
+.settings-submenu li {
+    padding: 0.8rem 1rem;
+}
+
+.settings-submenu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.settings-submenu li:hover {
+    background-color: #a03e16;
+}
+
+/* Pakottaa dropdownin sallimaan alavalikon näkyvän ulkopuolella */
+.dropdown-menu {
+    overflow: visible; /* ei rajoita alavalikkoa scrolliin */
+}
+
+@media (max-height: 500px) and (max-width: 1023px) {
+    .dropdown-menu {
+        overflow-y: auto;       /* scrolli takaisin */
+    }
+
+  
+}

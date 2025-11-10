@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="includes/hamburgers/dist/hamburgers.css">
     <link rel="stylesheet" href="css/hyodyt_ja_haitat.css">
+      <link rel="stylesheet" href="css/modes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
 </head>
 <body>
-    <header class="header">
+   <header class="header">
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
@@ -61,7 +62,19 @@
                         <span></span>
                         <li><a href="huvimaja.html">Huvimaja</a></li>
                         <span></span>
-                        <li><a href="#">Asetukset</a></li>
+
+                        <!--Asetukset Default, Dark ja Light mode-->
+                        <li class="nav-item dropdown-settings">
+                        <a href="#" class="settings-toggle">Asetukset ▾</a>
+                        <ul class="settings-submenu">
+                            <li><a href="#">Default</a></li>
+                            <span></span>
+                            <li><a href="#">Dark Mode</a></li>
+                            <span></span>
+                            <li><a href="#">Light Mode</a></li>
+                        </ul>
+                        </li>
+
                     </ul>
                 </li>
             </ul>           

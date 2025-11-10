@@ -2,11 +2,61 @@
 // HAMPURILAISVALIKON TOIMINNALLISUUS
 // ------------------------------
 const burgerButtonActiveToggle = () => {
-    let burgerButton = document.querySelector(".hamburger");
-    let dropdownMenu = document.querySelector(".dropdown-menu");
+  const burgerButton = document.querySelector(".hamburger");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+  if (burgerButton && dropdownMenu) {
     burgerButton.classList.toggle("is-active");
     dropdownMenu.classList.toggle("active");
-}
+  }
+};
+
+// ------------------------------
+// ASETUKSET-VALIKON TOIMINNALLISUUS (klikkaus)
+// ------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const settingsItem = document.querySelector(".dropdown-settings");
+  if (!settingsItem) return;
+
+  const settingsToggle = settingsItem.querySelector(".settings-toggle");
+  const settingsSubmenu = settingsItem.querySelector(".settings-submenu");
+  if (!settingsToggle || !settingsSubmenu) return;
+
+  settingsToggle.addEventListener("click", (e) => {
+    e.preventDefault();  // estää linkin siirtymisen
+    e.stopPropagation(); // estää click bubblingin
+    settingsItem.classList.toggle("active");
+  });
+
+  // Sulkee alavalikon jos klikataan muualla
+  document.addEventListener("click", (e) => {
+    if (!settingsItem.contains(e.target)) {
+      settingsItem.classList.remove("active");
+    }
+  });
+});
+
+// ==============================================
+// MODE VALINTA: Default, Dark, Light
+// ==============================================
+document.addEventListener("DOMContentLoaded", () => {
+    const modeLinks = document.querySelectorAll(".settings-submenu a");
+
+    modeLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            // Poistetaan aiemmat moodit
+            document.body.classList.remove("default-mode", "dark-mode", "light-mode");
+
+            // Lisätään valittu moodi
+            const mode = link.textContent.toLowerCase().replace(" ", "-");
+            document.body.classList.add(mode);
+        });
+    });
+});
+
+
+
 
 // ------------------------------
 // SITAATTIKONEEN JAVASCRIPT
