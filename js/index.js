@@ -36,11 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==============================================
-// MODE VALINTA: Default, Dark, Light
+// MODE VALINTA: Default, Dark, Light (tallentuu localStorageen)
 // ==============================================
 document.addEventListener("DOMContentLoaded", () => {
     const modeLinks = document.querySelectorAll(".settings-submenu a");
 
+    // 1. Tarkista, onko tallennettu moodi localStoragessa
+    const savedMode = localStorage.getItem("siteMode");
+    if (savedMode) {
+        document.body.classList.add(savedMode);
+    }
+
+    // 2. Kun käyttäjä klikkaa moodia
     modeLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
@@ -51,12 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // Lisätään valittu moodi
             const mode = link.textContent.toLowerCase().replace(" ", "-");
             document.body.classList.add(mode);
+
+            // 3. Tallennetaan moodi localStorageen
+            localStorage.setItem("siteMode", mode);
         });
     });
 });
-
-
-
 
 // ------------------------------
 // SITAATTIKONEEN JAVASCRIPT
