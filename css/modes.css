@@ -269,3 +269,10 @@ body.light-mode .send-input-btn {
 body.light-mode .send-input-btn:hover {
     background-color: #e08c60;
 }
+
+body.light-mode .shine-text {
+    background: none;
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+}
+
