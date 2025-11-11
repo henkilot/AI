@@ -129,6 +129,13 @@ body.dark-mode .text {
     color: #eee;                   /* varmista että tekstit näkyy */
 }
 
+body.dark-mode .send-input-btn {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
 
 /* ======================== */
 /* LIGHT MODE */
@@ -216,43 +223,29 @@ body.light-mode .bot-container {
 body.light-mode .bot-header {
     background-color: #f5a17b; /* otsikkoalue vaaleaksi */
     color: #000;
-    padding: 10px;
     border-bottom: 2px solid #f5a17b;
 }
 
 body.light-mode .bot-chat {
     background-color: #fff; /* chat-alueen tausta */
     color: #000;
-    padding: 10px;
 }
 
 body.light-mode .bot-message {
     background-color: #f0f0f0; /* botin viestien vaalea tausta */
     color: #000;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
 }
 
 body.light-mode .user-message {
     background-color: #e0e0e0; /* käyttäjän viestit hieman eri sävyllä */
     color: #000;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
 }
 
-body.light-mode .bot-input {
-    display: flex;
-    gap: 5px;
-    padding: 10px;
-}
 
 body.light-mode .user-input {
     flex: 1;
     padding: 8px;
     border: 1px solid #f5a17b;
-    border-radius: 5px;
     background-color: #fff;
     color: #000;
 }
@@ -261,18 +254,11 @@ body.light-mode .send-input-btn {
     background-color: #f5a17b;
     color: #000;
     border: 1px solid #f5a17b;
-    padding: 8px 12px;
-    border-radius: 5px;
     cursor: pointer;
-}
-
-body.light-mode .send-input-btn:hover {
-    background-color: #e08c60;
 }
 
 body.light-mode .shine-text {
     background: none;
-    color: #000 !important;
-    -webkit-text-fill-color: #000 !important;
+    color: #000;
 }
 
