@@ -262,3 +262,9 @@ body.light-mode .shine-text {
     color: #000;
 }
 
+/* Korjaa iOS Safari 100vh-bugin */
+@supports (-webkit-touch-callout: none) {
+  .dropdown-menu {
+    max-height: calc(100dvh - 60px); /* dynaaminen vh Safari iOS 16+ */
+  }
+}
