@@ -129,13 +129,59 @@ body.dark-mode .text {
     color: #eee;                   /* varmista että tekstit näkyy */
 }
 
-body.dark-mode .send-input-btn {
+
+/* DARK MODE CHATBOT */
+
+body.dark-mode .app-container {
     background-color: #1e1e1e;
-    color: #fff;
-    border: 1px solid #fff;
-    cursor: pointer;
+    color: white;
 }
 
+body.dark-mode .chat-header {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .chat-header h1 {
+    color: white;
+}
+
+body.dark-mode .button-container button {
+    background-color: #1e1e1e;
+    border: 1px solid white;
+}
+
+body.dark-mode .chat-messages {
+    background-color: rgb(47, 47, 47);
+}
+
+body.dark-mode .bot-message {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode .user-message {
+    background-color: #7a7a7a;
+    color: white;
+}
+
+body.dark-mode .chat-input-container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .chat-input-container input {
+    background-color: rgb(47, 47, 47);
+    color: white;
+}
+
+body.dark-mode .chat-input-container button {
+    background-color: #1e1e1e;
+    border: 1px solid white;
+}
+
+body.dark-mode .chat-input-container button:hover {
+    background-color: #2f2f2f;
+    border: 1px solid white;
+}
 
 /* ======================== */
 /* LIGHT MODE */
@@ -211,22 +257,25 @@ body.light-mode .text {
     color: #000;                /* varmistaa tekstin näkyvyyden */
 }
 
-/* ======================== */
-/* LIGHT MODE BOT */
-/* ======================== */
-body.light-mode .bot-container {
+/* LIGHT MODE CHATBOT */
+body.light-mode .app-container {
     background-color: #ffffff; /* vaalea tausta botille */
-    border: 2px solid #f5a17b; /* rajat näkyviin */
+     /* rajat näkyviin */
     color: #000; /* tekstit tummiksi */
 }
 
-body.light-mode .bot-header {
+body.light-mode .chat-header {
     background-color: #f5a17b; /* otsikkoalue vaaleaksi */
     color: #000;
     border-bottom: 2px solid #f5a17b;
 }
 
-body.light-mode .bot-chat {
+body.light-mode .button-container button {
+    background-color: white;
+    color: black;
+}
+
+body.light-mode .chat-messages {
     background-color: #fff; /* chat-alueen tausta */
     color: #000;
 }
@@ -241,8 +290,12 @@ body.light-mode .user-message {
     color: #000;
 }
 
+body.light-mode .chat-input-container {
+    background-color: #f5a17b;
+}
 
-body.light-mode .user-input {
+
+body.light-mode .chat-input-container input {
     flex: 1;
     padding: 8px;
     border: 1px solid #f5a17b;
@@ -250,11 +303,16 @@ body.light-mode .user-input {
     color: #000;
 }
 
-body.light-mode .send-input-btn {
+body.light-mode .chat-input-container button {
     background-color: #f5a17b;
     color: #000;
-    border: 1px solid #f5a17b;
+    border: 1px solid white;
     cursor: pointer;
+
+}
+
+body.light-mode .chat-input-container button:hover {
+    background-color: #f7c3ab;
 }
 
 body.light-mode .shine-text {
