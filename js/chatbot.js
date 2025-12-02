@@ -4,6 +4,26 @@ const chatHistoryList = document.getElementById('chat-history-list');
 
 let chats = [];
 let currentChatIndex = -1;
+let questionsData = []; // Will store questions from the database
+
+
+
+window.addEventListener('DOMContentLoaded', async () => {
+    setTimeout(() => newChat(), 500);
+    try {
+        const response = await fetch('/api/questions');
+        questionsData = await response.json();
+        console.log('Loaded questions:', questionsData);
+    } catch (error) {
+        console.error('Failed to load questions:', error);
+        // Fallback to default questions if API fails
+        questionsData = [
+            { question: "Mikä on sinun nimesi?", answer: "Minun nimeni on PRÄNK-BOT 3000." },
+            { question: "Mitä voit tehdä?", answer: "Voin vastata esivalmisteltuihin kysymyksiin!" },
+            { question: "Miksi järjestelmä kaatui?", answer: "Se oli tarkoituksellinen PRÄNKKI!" }
+        ];
+    }
+});
 
 userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -11,40 +31,6 @@ userInput.addEventListener('keypress', (e) => {
     }
 });
 
-function saveChat(messages) {
-    const chat = {
-        id: Date.now(),
-        messages: messages,
-        firstMessage: messages[0]?.content || 'New Chat'
-    };
-    chats.push(chat);
-    currentChatIndex = chats.length - 1;
-    updateChatHistory();
-    return chat;
-}
-
-
-function loadChat(index) {
-    if (index === currentChatIndex) return;
-
-    const currentMessages = Array.from(chatMessages.children).map(msg => ({
-        content: msg.textContent,
-        isUser: msg.classList.contains('user-message')
-    }));
-    
-    if (currentMessages.length > 0 && currentChatIndex === -1) {
-        saveChat(currentMessages);
-    }
-    
-    currentChatIndex = index;
-    chatMessages.innerHTML = '';
-    
-    chats[index].messages.forEach(msg => {
-        addMessage(msg.content, msg.isUser);
-    });
-    
-    updateChatHistory();
-}
 
 function addMessage(message, isUser) {
     const messageDiv = document.createElement('div');
@@ -64,6 +50,27 @@ function newChat() {
     addMessage("Hei! Kuinka voin auttaa?", false);
 }
 
+
+function showQuestionButtons() {
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'button-container';
+    
+    questionsData.forEach(qa => {
+        const button = document.createElement('button');
+        button.className = 'question-button';
+        button.textContent = qa.question;
+        button.addEventListener('click', () => { 
+            addMessage(qa.question, true);
+            setTimeout(() => addMessage(qa.answer, false), 500);
+            buttonContainer.remove();
+        });
+        buttonContainer.appendChild(button);
+    });
+    
+    chatMessages.appendChild(buttonContainer);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
 async function sendMessage() {
     const message = userInput.value.trim();
     if (!message) return;
@@ -72,30 +79,16 @@ async function sendMessage() {
     userInput.value = '';
 
     try {
-        const response = await fetch('/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message }),
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        addMessage(data.reply, false);
-        
-
-        const currentMessages = Array.from(chatMessages.children).map(msg => ({
-            content: msg.textContent,
-            isUser: msg.classList.contains('user-message')
-        }));
-        
+        throw new Error('Simulated error for prank bot');  
     } catch (error) {
         console.error('Error:', error);
         addMessage(`Viestisi "${message}" aiheutti ongelman järjestelmässämme.
-                    Käynnistetään ITSETUHOPROTOKOLLA: KOLME, KAKSI, YKSI... PRÄNKKI`, false);
+                    Käynnistetään PROTOKOLLA: KOLME, KAKSI, YKSI... PRÄNKKI!`, false);
+        
+        setTimeout(() => {
+            addMessage("Valitse yksi seuraavista kysymyksistä:", false);
+            showQuestionButtons();
+        }, 1500);
     }
 }
+

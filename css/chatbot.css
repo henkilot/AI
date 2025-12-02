@@ -127,6 +127,14 @@ button:hover {
     margin-left: 5px;
 }
 
+.button-container {
+
+}
+
+.question-button {
+    border: 1px solid black;
+}
+
 /*Esitä kysymys laatikko ja nappi allekkain*/
 @media (max-width: 600px) {
     .bot-input {

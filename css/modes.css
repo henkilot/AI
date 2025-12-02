@@ -150,6 +150,11 @@ body.dark-mode .button-container button {
     border: 1px solid white;
 }
 
+body.dark-mode .button-container button:hover {
+    background-color: #2f2f2f;
+    border: 1px solid white;
+}
+
 body.dark-mode .chat-messages {
     background-color: rgb(47, 47, 47);
 }
@@ -273,6 +278,10 @@ body.light-mode .chat-header {
 body.light-mode .button-container button {
     background-color: white;
     color: black;
+}
+
+body.light-mode .button-container button:hover {
+    background-color: #f7c3ab;
 }
 
 body.light-mode .chat-messages {
