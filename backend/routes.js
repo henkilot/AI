@@ -75,7 +75,7 @@ router.post("/send", async (req, res) => {
     console.log("Vastaavaa kysymystä ei löytynyt käyttäjän viestille:", message);
     res.json({
       user: message,
-      bot: "En löytänyt vastausta tietokannasta."
+      bot: "Hmm… en löytänyt vastausta. Lienee universumin mysteeri."
     });
   } catch (error) {
     console.error("Virhe lähettäessä viestiä:", error);
