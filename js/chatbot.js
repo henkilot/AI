@@ -3,8 +3,8 @@ const userInput = document.getElementById("user-input");
 
 // API:n osoite
 const API_URL = window.location.hostname.includes('github.io')
-    ? "https://henkilot-api.onrender.com" 
-    : "http://localhost:5000";
+    ? "https://henkilot-api.onrender.com/api/chat" 
+    : "http://localhost:5000/api/chat";
 
 // MongoDB kysymykset&vastaukset
 let questionsData = [];
@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch("/api/questions");
+    const response = await fetch(`${API_BASE}/questions`);
     questionsData = await response.json();
     console.log("Loaded questions:", questionsData);
   } catch (error) {
@@ -163,7 +163,7 @@ async function sendMessage() {
   userInput.value = "";
 
   try {
-    const response = await fetch(`${API_URL}/api/chat/send`, {
+    const response = await fetch(`${API_URL}/send`, {
       method: "POST",
 
       headers: { "Content-Type": "application/json" },
