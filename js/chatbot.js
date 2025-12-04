@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch(`${API_BASE}/questions`);
+    const response = await fetch(`${API_URL}/questions`);
     questionsData = await response.json();
     console.log("Loaded questions:", questionsData);
   } catch (error) {
