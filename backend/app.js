@@ -32,7 +32,7 @@ app.use(express.json());
 
 
 // Chatbotin API-reitit
-app.use("/AI/api/chat", chatRoutes);
+app.use("/api/chat", chatRoutes);
 
 const port = process.env.PORT || 5000;
 // Palvelimen käynnistys haluttuun porttiin
