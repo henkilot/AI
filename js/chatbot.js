@@ -16,7 +16,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         console.log('Loaded questions:', questionsData);
     } catch (error) {
         console.error('Failed to load questions:', error);
-        // Fallback to default questions if API fails
         questionsData = [
             { question: "Mikä on sinun nimesi?", answer: "Minun nimeni on PRÄNK-BOT 3000." },
             { question: "Mitä voit tehdä?", answer: "Voin vastata esivalmisteltuihin kysymyksiin!" },
