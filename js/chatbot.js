@@ -1,93 +1,135 @@
 const chatMessages = document.getElementById('chat-messages');
 const userInput = document.getElementById('user-input');
-const chatHistoryList = document.getElementById('chat-history-list');
 
-let chats = [];
-let currentChatIndex = -1;
-let questionsData = []; // Will store questions from the database
+// Backendin osoite
+const API_URL = "http://localhost:5000";
+
+// MongoDB-kysymykset (vain kirjoitetuille viesteille)
+let questionsData = [];
 
 
+// ----------------------------------------------------------
+// ⭐ Kovakoodatut aihepainikkeet (PRÄNK-BOT 3000 teema)
+// ----------------------------------------------------------
+const hardcodedQuestions = [
+    { question: "Mikä on sinun nimesi?", answer: "Minun nimeni on PRÄNK-BOT 3000." },
+    { question: "Mitä voit tehdä?", answer: "Voin vastata esivalmisteltuihin kysymyksiin!" },
+    { question: "Miksi järjestelmä kaatui?", answer: "Se oli tarkoituksellinen PRÄNKKI!" }
+];
 
+
+// ----------------------------------------------------------
+// LADATAAN Tietokannan kysymykset (EI kosketa nappilistaa)
+// ----------------------------------------------------------
 window.addEventListener('DOMContentLoaded', async () => {
-    setTimeout(() => newChat(), 500);
     try {
-        const response = await fetch('/api/questions');
+        const response = await fetch(`${API_URL}/api/chat/questions`);
         questionsData = await response.json();
-        console.log('Loaded questions:', questionsData);
+        console.log("Loaded questions:", questionsData);
     } catch (error) {
+<<<<<<< HEAD
         console.error('Failed to load questions:', error);
         questionsData = [
             { question: "Mikä on sinun nimesi?", answer: "Minun nimeni on PRÄNK-BOT 3000." },
             { question: "Mitä voit tehdä?", answer: "Voin vastata esivalmisteltuihin kysymyksiin!" },
             { question: "Miksi järjestelmä kaatui?", answer: "Se oli tarkoituksellinen PRÄNKKI!" }
         ];
+=======
+        console.error("Failed to load questions:", error);
+        questionsData = [];
+>>>>>>> 759010ad89c187b883ed1cb1cf17276cc421c6ce
     }
+
+    // Käynnistetään uusi chat
+    setTimeout(() => newChat(), 300);
 });
 
-userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
-});
 
-
+// ----------------------------------------------------------
+// Lisää viesti ruutuun
+// ----------------------------------------------------------
 function addMessage(message, isUser) {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
-    messageDiv.textContent = message;
-    chatMessages.appendChild(messageDiv);
+    const div = document.createElement('div');
+    div.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+    div.textContent = message;
+    chatMessages.appendChild(div);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+
+// ----------------------------------------------------------
 function clearChat() {
-    chatMessages.innerHTML = '';
-    currentChatIndex = -1;
+    chatMessages.innerHTML = "";
 }
 
+
+// ----------------------------------------------------------
+// Uusi chat — näyttää PRÄNK-BOT -napit
+// ----------------------------------------------------------
 function newChat() {
     clearChat();
     addMessage("Hei! Kuinka voin auttaa?", false);
+
+    addMessage("Valitse aiheet:", false);
+    showQuestionButtons();
 }
 
 
+// ----------------------------------------------------------
+// ⭐ Kovakoodatut PRÄNK-BOT -napit
+// ----------------------------------------------------------
 function showQuestionButtons() {
-    const buttonContainer = document.createElement('div');
-    buttonContainer.className = 'button-container';
-    
-    questionsData.forEach(qa => {
-        const button = document.createElement('button');
-        button.className = 'question-button';
-        button.textContent = qa.question;
-        button.addEventListener('click', () => { 
-            addMessage(qa.question, true);
-            setTimeout(() => addMessage(qa.answer, false), 500);
-            buttonContainer.remove();
+
+    const container = document.createElement('div');
+    container.className = 'button-container';
+
+    hardcodedQuestions.forEach(qa => {
+        const btn = document.createElement('button');
+        btn.className = 'question-button';
+        btn.textContent = qa.question;
+
+        btn.addEventListener('click', () => {
+            addMessage(qa.question, true);               // käyttäjän viesti
+            setTimeout(() => addMessage(qa.answer, false), 300); // kovakoodattu vastaus
+            container.remove();                          // poistaa napit
         });
-        buttonContainer.appendChild(button);
+
+        container.appendChild(btn);
     });
-    
-    chatMessages.appendChild(buttonContainer);
+
+    chatMessages.appendChild(container);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+
+// ----------------------------------------------------------
+// Lähetä kirjoitettu viesti backendille
+// ----------------------------------------------------------
 async function sendMessage() {
     const message = userInput.value.trim();
     if (!message) return;
 
     addMessage(message, true);
-    userInput.value = '';
+    userInput.value = "";
 
     try {
-        throw new Error('Simulated error for prank bot');  
+        const response = await fetch(`${API_URL}/api/chat/send`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+        addMessage(data.bot, false);
+
     } catch (error) {
-        console.error('Error:', error);
-        addMessage(`Viestisi "${message}" aiheutti ongelman järjestelmässämme.
-                    Käynnistetään PROTOKOLLA: KOLME, KAKSI, YKSI... PRÄNKKI!`, false);
-        
-        setTimeout(() => {
-            addMessage("Valitse yksi seuraavista kysymyksistä:", false);
-            showQuestionButtons();
-        }, 1500);
+        console.error("POST error:", error);
+        addMessage("Virhe viestiä lähetettäessä.", false);
     }
 }
 
+
+// Enter = Lähetä
+userInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+});
