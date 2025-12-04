@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch("/api/questions");
+    const response = await fetch("/AI/api/questions");
     questionsData = await response.json();
     console.log("Loaded questions:", questionsData);
   } catch (error) {

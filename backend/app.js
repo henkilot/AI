@@ -23,13 +23,16 @@ const app = express();
 
 // Middlewaret
 app.use(cors({
-  origin: ['https://henkilot.github.io/AI/', 'http://localhost:3000']
+  origin: [
+    'https://henkilot.github.io', 
+    'http://localhost:5000',
+  ]
 }));
 app.use(express.json());
 
 
 // Chatbotin API-reitit
-app.use("/api/chat", chatRoutes);
+app.use("/AI/api/chat", chatRoutes);
 
 const port = process.env.PORT || 5000;
 // Palvelimen käynnistys haluttuun porttiin
