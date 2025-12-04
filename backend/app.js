@@ -22,14 +22,17 @@ connectDB();
 const app = express();
 
 // Middlewaret
-app.use(cors());
+app.use(cors({
+  origin: ['https://henkilot.github.io/AI/', 'http://localhost:3000']
+}));
 app.use(express.json());
 
 
 // Chatbotin API-reitit
 app.use("/api/chat", chatRoutes);
 
+const port = process.env.PORT || 5000;
 // Palvelimen käynnistys haluttuun porttiin
-app.listen(config.PORT, () => {
-  console.log(`Palvelin käynnissä portissa ${config.PORT}`);
+app.listen(port, () => {
+  console.log(`Palvelin käynnissä portissa ${port}`);
 });

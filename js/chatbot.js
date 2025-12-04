@@ -2,7 +2,9 @@ const chatMessages = document.getElementById("chat-messages");
 const userInput = document.getElementById("user-input");
 
 // API:n osoite
-const API_URL = "http://localhost:5000";
+const API_URL = window.location.hostname.includes('github.io')
+    ? "https://henkilot-api.onrender.com" 
+    : "http://localhost:5000";
 
 // MongoDB kysymykset&vastaukset
 let questionsData = [];
