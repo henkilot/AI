@@ -22,8 +22,9 @@ connectDB();
 const app = express();
 
 // Middlewaret
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+
 
 // Chatbotin API-reitit
 app.use("/api/chat", chatRoutes);

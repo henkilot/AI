@@ -7,6 +7,8 @@ const API_URL = "http://localhost:5000";
 // MongoDB kysymykset&vastaukset
 let questionsData = [];
 
+const CHAT_STORAGE_KEY = "prankbot_chat_history";
+
 // Fallback-kysymykset, jos tietokanta yhteys ei toimi.
 const hardcodedQuestions = [
   {
@@ -27,7 +29,15 @@ const hardcodedQuestions = [
 
 // API:n kautta kysymykset&vastaukset (MongoDB)
 window.addEventListener("DOMContentLoaded", async () => {
-  setTimeout(() => newChat(), 500);
+  // Asettaa loadChatHistory funktion savedMessages muuttujaan
+  const savedMessages = loadChatHistory();
+
+  if (savedMessages.length > 0) {
+    restoreChat(savedMessages);
+  } else {
+    setTimeout(() => newChat(), 500);
+  }
+
   try {
     const response = await fetch("/api/questions");
     questionsData = await response.json();
@@ -54,27 +64,61 @@ window.addEventListener("DOMContentLoaded", async () => {
 // Lisää viestit, antaa luokan sen perusteella, onko käyttäjä vai botti.
 function addMessage(message, isUser) {
   const div = document.createElement("div");
-
   div.className = `message ${isUser ? "user-message" : "bot-message"}`;
-
   div.textContent = message;
-
   chatMessages.appendChild(div);
-
   chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  // Tallentaa chattihistorian.
+  saveCurrentChat();
 }
+
+// Apufunktio chatin tallentamiseen.
+function saveCurrentChat() {
+  // valitsee kaikki viestielementit ja muuttaa ne varastoitavaan listaan
+  const messageElements = chatMessages.querySelectorAll(".message");
+  const messages = Array.from(messageElements).map((el) => ({
+    text: el.textContent,
+    isUser: el.classList.contains("user-message"),
+  }));
+
+  // Tallentaa localStorageen JSON:na
+  try {
+    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+  } catch (e) {
+    console.warn("Ei pystynyt tallentamaan chättiä localStorageen:", e);
+  }
+}
+
+function loadChatHistory() {
+  try {
+    const saved = localStorage.getItem(CHAT_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [];
+  } catch (e) {
+    console.warn("Ei pystynyt lataamaan chättiä localStoragesta:");
+    return [];
+  }
+}
+
+function restoreChat(messages) {
+  clearChat();
+  messages.forEach((msg) => {
+    addMessage(msg.text, msg.isUser);
+  });
+}
+
 // Puhdistaa keskustelun
 function clearChat() {
   chatMessages.innerHTML = "";
 }
 
-// Aloittaa logiikan alusta 
+// Aloittaa logiikan alusta
 function newChat() {
+  // Puhdistaa localStoragen, kun käyttäjä painaa uuden chatin nappia
+  localStorage.removeItem(CHAT_STORAGE_KEY);
   clearChat();
   addMessage("Hei! Kuinka voin auttaa?", false);
-
   addMessage("Valitse aiheet:", false);
-
   showQuestionButtons();
 }
 
@@ -140,3 +184,4 @@ async function sendMessage() {
 userInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") sendMessage();
 });
+

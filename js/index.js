@@ -147,7 +147,8 @@ function showScaryRobot() {
 // ------------------------------
 // NAPIN KLIKKI-EVENT
 // ------------------------------
-spinButton.addEventListener("click", () => {
+if (spinButton) {
+ spinButton.addEventListener("click", () => {
     if (spinning) return;
     spinning = true;
 
@@ -183,6 +184,8 @@ spinButton.addEventListener("click", () => {
         spinning = false;
     }, 4000);
 });
+}
+
 
 
 
