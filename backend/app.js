@@ -10,8 +10,6 @@ import cors from "cors";
 import connectDB from "./db.js";
 import chatRoutes from "./routes.js";
 
-// Tuodaan konfiguraatio-objekti
-import { config } from "./config.js";
 
 // Ladataan .env -tiedosto ennen kuin config.js käyttää muuttujia
 dotenv.config();
