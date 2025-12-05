@@ -1,8 +1,5 @@
 // app.js
-// -----------------------------------------------------------------------------
-// Tämä on backendin pääohjelma. Nyt portti ei enää ole kovakoodattu,
-// vaan haetaan se erillisestä config.js -tiedostosta.
-// -----------------------------------------------------------------------------
+
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
@@ -24,7 +21,10 @@ app.use(cors({
   origin: [
     'https://henkilot.github.io', 
     'http://localhost:5000',
-  ]
+    'http://localhost:3000',
+    'http://localhost:5500',
+    'http://127.0.0.1'
+  ],
 }));
 app.use(express.json());
 
