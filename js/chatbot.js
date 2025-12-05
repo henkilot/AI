@@ -45,6 +45,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const response = await fetch(`${API_URL}/questions`);
+
+    // Antaa virheen ja kuvaa virheilmoitusta, jos fetch ei mennyt läpi
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
     questionsData = await response.json();
     console.log("Loaded questions:", questionsData);
   } catch (error) {
@@ -173,6 +179,11 @@ async function sendMessage() {
 
       body: JSON.stringify({ message }),
     });
+
+    // Antaa virheen ja kuvaa virheilmoitusta, jos fetch ei mennyt läpi
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
 
     const data = await response.json();
 
